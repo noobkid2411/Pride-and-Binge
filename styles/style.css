@@ -1,0 +1,13 @@
+body 
+{
+	margin: 0px;
+}
+header 
+{
+	background-image: url(../images/Party!.gif);
+	height: 100vh;
+	background-attachment: fixed;
+	background-size: contain;
+	background-size: 100% 100%;
+	margin: -1px;
+}
