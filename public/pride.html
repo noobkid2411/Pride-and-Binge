@@ -1,0 +1,84 @@
+<html>
+    <body>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCMWi2_G-BYwc1OUHvD7h0TECOpjOSYIto",
+    authDomain: "pride-and-binge.firebaseapp.com",
+    databaseURL: "https://pride-and-binge-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "pride-and-binge",
+    storageBucket: "pride-and-binge.appspot.com",
+    messagingSenderId: "611093128052",
+    appId: "1:611093128052:web:25629cf4991254aaa6c221",
+    measurementId: "G-4BF3N2EY0Y"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script>
+
+  var movieNo=0;
+  function addMoviesToList(title,genre,release,votes,summary)
+  {
+      var ul=document.getElementById('list');
+      var header=document.createElement('h2');
+      var _title=document.createElement('li');
+      var _genre=document.createElement('li');
+      var _release=document.createElement('li');
+      var _votes=document.createElement('li');
+      var _summary=document.createElement('li');
+      header.innerHTML='Movies-'+(++movieNo);
+      _title,innerHTML='Title:'+title;
+      _genre,innerHTML='Title:'+genre;
+      _release,innerHTML='Title:'+release;
+      _votes,innerHTML='Title:'+votes;
+      _summary,innerHTML='Title:'+summary;
+      ul.appendChild(header);
+      ul.appendChild(title);
+      ul.appendChild(genre);
+      ul.appendChild(release);
+      ul.appendChild(votes); 
+      ul.appendChild(summary);
+
+
+
+  }
+  function FetchAllmovies(){
+      firebase.database().ref('Movies').once('value',function(snapshot){
+        snapshot.forEach(
+            function(ChildSnapShot){
+                let title=ChildSnapshot.val().Title;
+                let genre=ChildSnapshot.val().Genre;
+                let release=ChildSnapshot.val().Release;
+                let votes=ChildSnapshot.val().Votes;
+                let summary=ChildSnapshot.val().Summary;
+                
+
+                addMoviesToList();
+            }
+        )  ;
+      });
+  }
+  windows.onload(FetchAllmovies());
+</script>
+<h2>
+  
+</h2>
+     <ul>
+         <li>
+             </li>
+            </ul>
+     </body>
+</html>
