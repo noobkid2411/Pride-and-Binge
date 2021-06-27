@@ -13,9 +13,14 @@ What's next for Lettuce-Water-On-Thyme
 
 
 Built With
-~ HTML,CSS
 
-~ React JS,npm,yarn
+~ HTML
+
+~CSS
+
+~ Javascript
+
+~npm,yarn
 
 ~ Firebase real time database API
 
